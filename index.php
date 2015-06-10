@@ -3,6 +3,8 @@
 //process client request
 include("functions.php");
 
+echo "hello there";
+
 if( !empty($_GET['name']) )
 {
 	$name = $_GET['name'];
