@@ -1,4 +1,6 @@
-Options +FollowSymLinks
-RewriteEngine on
-
-RewriteRule ^index/([0-9]+)$ index.php?name=$1
+Options +FollowSymLinks -MultiViews
+# Turn mod_rewrite on
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}\.php -f 
+RewriteRule ^(.*)$ $1.php
