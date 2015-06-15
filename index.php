@@ -3,7 +3,8 @@
 //process client request
 include("functions.php");
 
-echo "hello there";
+echo strlen("What is today’s temperature in");
+
 
 if( !empty($_GET['name']) )
 {

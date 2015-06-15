@@ -34,8 +34,13 @@ function deliverResponse($status, $statusMessage, $data)
 
 }
 
+function deliverGreetingsResponse()
+{
+	$response['answer'] = "Hello, Kitty! I am Ashikee Ghosh. Nice to meet you :)";
+	$jsonResponse = json_encode($response);
+	echo $jsonResponse;
 
 
-
+}
 
 ?>
