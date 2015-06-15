@@ -2,6 +2,7 @@
 if(isset($_GET['q']))
 {
 	$query = $_GET['q'];
+	$ans = "";
 
 
 //Fetch cityname
@@ -26,28 +27,28 @@ if(isset($_GET['q']))
 
 	//$response = substr($response,5);
 	$response = json_decode($response,true);
-	
+
 	if( strpos($query,'temperature') !== false)
 	{
-		echo ( (int) ( $response['main']['temp']-273.15) );
-		echo " C or ";
-		echo $response['main']['temp']; 
-		echo " K" ;
+		$ans = strval( ( (int) ( $response['main']['temp']-273.15)) );
+		$ans  = $ans." C or ";
+		$ans  = $ans.$response['main']['temp']; 
+		$ans  = $ans." K" ;
 
 
 	}
 	else if (  strpos($query,'humidity') !== false )
 	{
-		echo $response['main']['humidity'];
+		$ans += $response['main']['humidity'];
 	}
 	else if( strpos($query,'Rain') !== false)
 	{
 		$stemp = $response['weather'][0]['main'];
 		$stemp2 = "Rain";
 		if($stemp == $stemp2 )
-			echo "Yes";
+			$ans = "Yes";
 		else
-		echo "No";
+		$ans = "No";
 	}
 
 	else if( strpos($query,'Clouds') !== false)
@@ -55,9 +56,9 @@ if(isset($_GET['q']))
 		$stemp = $response['weather'][0]['main'];
 		$stemp2 = "Clouds";
 		if($stemp == $stemp2 )
-			echo "Yes";
+			$ans = "Yes";
 		else
-		echo "No";
+		$ans = "No";
 
 	}
 	
@@ -65,12 +66,16 @@ if(isset($_GET['q']))
 	{$stemp = $response['weather'][0]['main'];
 		$stemp2 = "Clear";
 		if($stemp == $stemp2 )
-			echo "Yes";
+			$ans = "Yes";
 		else
-		echo "No";
+		$ans = "No";
 
 	}
 	
+	$responseans['answer'] = $ans;
+	
+	$responseans = json_encode($responseans);
+	echo $responseans;
 
 }
 
