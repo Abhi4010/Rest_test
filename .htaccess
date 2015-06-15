@@ -1,4 +1,4 @@
 Options +FollowSymLinks
 RewriteEngine on
 
-RewriteRule ^index/([0-9]+)$ index.php?id=$1
+RewriteRule ^index/([0-9]+)$ index.php?name=$1
