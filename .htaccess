@@ -1,4 +1,4 @@
 Options +FollowSymLinks
 RewriteEngine on
 
-RewriteRule ^product/([0-9]+)$ product.php?id=$1
+RewriteRule ^index/([0-9]+)$ index.php?id=$1
